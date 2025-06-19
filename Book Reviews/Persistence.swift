@@ -22,7 +22,6 @@ struct PersistenceController {
         book.title = "Preview Book"
         book.authorName = "Preview Author"
         book.pages = 300
-        book.genreStrings = ["Fantasy", "Mystery"] as NSArray
 
         // Sample Review
         let review = Review(context: viewContext)
@@ -44,7 +43,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "Book_Reviews") // Make sure this matches your .xcdatamodeld filename
+        container = NSPersistentContainer(name: "Book_Reviews")
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }

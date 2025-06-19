@@ -1,21 +1,11 @@
 //
-//  Review.swift
+//  ReviewData.swift
 //  Book Reviews
 //
 //  Created by Karl Cridland on 18/06/2025.
 //
 
-import SwiftUI
 import CoreData
-
-//class Review: NSManagedObject, Identifiable {
-//    
-//    @NSManaged var body: String
-//    @NSManaged var rating: Int16
-//    @NSManaged var date: Date
-//    var book: Book?  // This should be a relationship in your .xcdatamodeld
-//    
-//}
 
 struct ReviewData: Codable {
     

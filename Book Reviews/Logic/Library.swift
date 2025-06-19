@@ -15,12 +15,8 @@ class Library {
         
     }
     
-    func getBook(by isbn: String) -> Book? {
-        return self.books.first(where: {$0.isbn == isbn})
-    }
-    
-    func getBooks(by author: Author) -> [Book] {
-        return self.books.filter({$0.author == author})
+    func getBook(by id: String) -> Book? {
+        return self.books.first(where: {$0.id == id})
     }
     
 }

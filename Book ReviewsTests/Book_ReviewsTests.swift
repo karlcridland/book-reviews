@@ -10,8 +10,18 @@ import Testing
 
 struct Book_ReviewsTests {
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    @Test func searchFeature() async throws {
+        let results = try await BookFinder.search(by: "fourth wing")
+        results.forEach { result in
+            let authors = result.volumeInfo.authors ?? []
+            print(result.volumeInfo.title, authors.joined(separator: ", "), result.id) //E-OLEAAAQBAJ
+        }
+        #expect(results.count > 0)
     }
-
+    
+    @Test func bookByID() async throws {
+        let result = try await BookFinder.book(by: "E-OLEAAAQBAJ")
+        #expect(result != nil)
+    }
+    
 }
