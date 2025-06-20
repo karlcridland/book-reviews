@@ -10,13 +10,19 @@ import CoreData
 
 class ReviewManager {
     
-    static func addReview(body: String, rating: Int16, book: Book, context: NSManagedObjectContext) {
+    static func addReview(body: String, ratings: ReviewRatings, start: Date, finish: Date, book: Book, context: NSManagedObjectContext) {
         
         let newReview = Review(context: context)
         newReview.body = body
-        newReview.rating = rating
+        newReview.score_plot = ratings.plot
+        newReview.score_pacing = ratings.pacing
+        newReview.score_writing_style = ratings.writingStyle
+        newReview.score_world_building = ratings.worldBuilding
+        newReview.score_character_development = ratings.characterDevelopment
         newReview.book = book
-        newReview.date = Date() // Add this attribute to sort later if needed
+        newReview.reviewed = Date()
+        newReview.started = start
+        newReview.finished = finish
         
         do {
             try context.save()
@@ -34,4 +40,8 @@ class ReviewManager {
         }
     }
     
+}
+
+struct ReviewRatings {
+    let plot, pacing, writingStyle, worldBuilding, characterDevelopment: Int16
 }

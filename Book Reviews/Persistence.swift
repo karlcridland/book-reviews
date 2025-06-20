@@ -26,8 +26,7 @@ struct PersistenceController {
         // Sample Review
         let review = Review(context: viewContext)
         review.body = "This book was surprisingly good!"
-        review.rating = 4
-        review.date = Date()
+        review.reviewed = Date()
         review.book = book
 
         do {

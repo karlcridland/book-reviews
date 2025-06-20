@@ -57,7 +57,7 @@ struct BookResult: Codable, Identifiable {
     
     var authors: String {
         if let authors = self.volumeInfo.authors {
-            return "By \(authors.joined(separator: ", "))"
+            return authors.joined(separator: ", ")
         }
         return ""
     }
